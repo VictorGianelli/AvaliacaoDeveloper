@@ -2,11 +2,12 @@ import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
 import { GlobalStyle } from "./styles/global";
 import { useState } from "react";
-import { ListCarsTable } from "./components/VehicleTable";
+import { VehicleTable } from "./components/CarsTable";
 import { NewVehicle } from "./components/NewVehicle";
+import { RegisterContext } from "./RegisterContext";
 
 export function App() {
-
+  
   const [isNewVehicleRegisterModalOpen,
     setIsNewVehicleRegisterModalOpen
    ] = useState(false);
@@ -20,17 +21,17 @@ export function App() {
    }
 
   return (
-    <>
+    <RegisterContext.Provider value={[]} >
 
       <GlobalStyle />
       <Header onOpenNewVehicleRegisterModal={handleOpenNewVehicleRegisterModal} />
       <Dashboard />
-      <ListCarsTable />
+      <VehicleTable />
       <NewVehicle
         isOpen={isNewVehicleRegisterModalOpen}
         onRequestClose={handleCloseNewVehicleRegisterModal}
       />
 
-    </>
+    </RegisterContext.Provider>
   );
 }
