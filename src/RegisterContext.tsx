@@ -11,7 +11,7 @@ interface Vehicle {
  // blocked: boolean;
 }
 
-type RegisterInput = Omit<Vehicle, 'id' >;
+type RegisterInput = Omit<Vehicle, 'id'>;
 
 interface RegisterProviderProps {
  children: ReactNode;
@@ -26,21 +26,21 @@ export const RegisterContext = createContext<RegistersContextData>(
  {} as RegistersContextData
 );
 
-export function RegisterProvider({children} : RegisterProviderProps) {
+export function RegisterProvider({ children }: RegisterProviderProps) {
  const [registers, setRegisters] = useState<Vehicle[]>([])
 
  useEffect(() => {
-  api.get('Registers')
-   .then(response => setRegisters(response.data.Registers))
+  api.get('registers')
+   .then(response => setRegisters(response.data.registers))
  }, []);
 
  function createRegister(register: RegisterInput) {
 
   api.post('/registers', register)
-}
+ }
 
  return (
-  <RegisterContext.Provider value={{registers,createRegister}}>
+  <RegisterContext.Provider value={{ registers, createRegister }}>
    {children}
   </RegisterContext.Provider>
  )
