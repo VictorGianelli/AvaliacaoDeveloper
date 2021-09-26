@@ -54,7 +54,7 @@ export function ListCarsTable() {
     </tbody>
 
    </table>
-   <button>Cadastrar veiculos</button>
+   
   </Container>
  )
 }
