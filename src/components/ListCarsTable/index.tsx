@@ -1,8 +1,15 @@
+import { useEffect } from 'react';
+import { api } from '../../services/api';
 import lockedImg from '../../assets/locked.svg'
 import unlockedImg from '../../assets/unlocked.svg'
 import { Container } from "../Header/styles";
 
 export function ListCarsTable() {
+ useEffect(() => {
+  api.get('vehicles')
+  .then(response => console.log(response.data)) 
+ },[]);
+
  return(
   <Container>
    <table>
