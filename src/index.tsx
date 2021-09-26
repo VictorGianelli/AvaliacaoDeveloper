@@ -11,9 +11,12 @@ createServer({
       return [
         {
           id: 1,
+          name: "Victor",
           locked: true,
           vehiclePlate: "CTK2100",
           renavan: "53726152-43",
+          // images: [],
+          // blocked: false
         }
       ]
     })
