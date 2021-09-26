@@ -1,5 +1,7 @@
+import { FormEvent, useState } from 'react';
 import Modal from 'react-modal';
 import closeImg from '../../assets/close.svg'
+import { api } from '../../services/api';
 import { Container, UploadImagesContainer } from './styles';
 
 interface NewVehicleProps {
@@ -8,6 +10,32 @@ interface NewVehicleProps {
 }
 
 export function NewVehicle({ isOpen, onRequestClose }: NewVehicleProps) {
+
+  const [plate, setPlate] = useState('')
+  const [renavan, setRenavan] = useState('')
+  const [name, setName] = useState('')
+  const [cpf, setCpf] = useState(0)
+  // const [loadImg, setLoadImage] = useState([])
+  // const [loked, setLocked] = useState(false)
+
+  function handleCreateRegister(event: FormEvent) {
+    event.preventDefault();
+
+    const data = {
+      plate,
+      renavan,
+      name,
+      cpf
+    }
+
+    setPlate('');
+    setRenavan('');
+    setName('');
+    setCpf(0);
+    onRequestClose();
+
+    api.post('/register', data)
+  }
 
   return (
     <Modal
@@ -23,25 +51,34 @@ export function NewVehicle({ isOpen, onRequestClose }: NewVehicleProps) {
       >
         <img src={closeImg} alt="Fechar modal" />
       </button>
-      <Container>
+
+      <Container onSubmit={handleCreateRegister}>
         <h2>Cadastrar de veículos</h2>
 
         <input
           placeholder="Placa"
+          value={plate}
+          onChange={event => setPlate(event.target.value)}
         />
 
         <input
           // type="number"
           placeholder="Renavan"
+          value={renavan}
+          onChange={event => setRenavan(event.target.value)}
         />
 
         <input
           placeholder="Nome do proprietário"
+          value={name}
+          onChange={event => setName(event.target.value)}
         />
 
         <input
           type="number"
           placeholder="CPF"
+          value={cpf}
+          onChange={event => setCpf(Number(event.target.value))}
         />
 
         <UploadImagesContainer>

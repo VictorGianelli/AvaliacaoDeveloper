@@ -1,10 +1,12 @@
+import { useContext } from 'react';
 import lockedImg from '../../assets/locked.svg'
 import unlockedImg from '../../assets/unlocked.svg'
+import { RegisterContext } from '../../RegisterContext';
 import { Container } from "./styles";
 
 
 export function VehicleTable() {
-
+  const { registers } = useContext(RegisterContext)
 
   return (
     <Container>
