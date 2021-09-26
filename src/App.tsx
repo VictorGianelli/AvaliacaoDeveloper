@@ -3,7 +3,8 @@ import Modal from 'react-modal';
 import { Header } from "./components/Header";
 import { GlobalStyle } from "./styles/global";
 import { useState } from "react";
-import { ListCarsTable } from "./components/ListCarsTable";
+import { ListCarsTable } from "./components/VehicleTable";
+import { NewVehicle } from "./components/NewVehicle";
 
 export function App() {
 
@@ -26,12 +27,10 @@ export function App() {
       <Header onOpenNewVehicleRegisterModal={handleOpenNewVehicleRegisterModal} />
       <Dashboard />
       <ListCarsTable />
-      <Modal
+      <NewVehicle
         isOpen={isNewVehicleRegisterModalOpen}
         onRequestClose={handleCloseNewVehicleRegisterModal}
-      >
-        <h2>Cadastrar transação</h2>
-      </Modal>
+      />
 
     </>
   );
