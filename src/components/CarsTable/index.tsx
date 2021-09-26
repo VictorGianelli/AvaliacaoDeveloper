@@ -1,31 +1,10 @@
-import { useEffect, useState } from 'react';
-import { api } from '../../services/api';
 import lockedImg from '../../assets/locked.svg'
 import unlockedImg from '../../assets/unlocked.svg'
 import { Container } from "./styles";
 
-interface Vehicle {
-  id: number;
-  name: string;
-  locked: boolean;
-  vehiclePlate: string;
-  renavan: string;
-  // images: [],
-  // blocked: boolean;
-  
-  // title: string;
-  // amount: number;
-  // type: string;
-  // category: string;
-  // createdAt: string;
-}
+
 export function VehicleTable() {
-  const [vehicles, setVehicles] = useState<Vehicle[]>([])
-  
-  useEffect(() => {
-    api.get('vehicles')
-      .then(response => console.log(response.data))
-  }, []);
+
 
   return (
     <Container>

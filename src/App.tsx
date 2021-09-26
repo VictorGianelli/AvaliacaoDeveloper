@@ -4,7 +4,7 @@ import { GlobalStyle } from "./styles/global";
 import { useState } from "react";
 import { VehicleTable } from "./components/CarsTable";
 import { NewVehicle } from "./components/NewVehicle";
-import { RegisterContext } from "./RegisterContext";
+import { RegisterProvider } from "./RegisterContext";
 
 export function App() {
   
@@ -21,7 +21,7 @@ export function App() {
    }
 
   return (
-    <RegisterContext.Provider value={[]} >
+    <RegisterProvider>
 
       <GlobalStyle />
       <Header onOpenNewVehicleRegisterModal={handleOpenNewVehicleRegisterModal} />
@@ -32,6 +32,6 @@ export function App() {
         onRequestClose={handleCloseNewVehicleRegisterModal}
       />
 
-    </RegisterContext.Provider>
+    </RegisterProvider>
   );
 }
