@@ -9,7 +9,7 @@ export function Header({ onOpenNewVehicleModal }: HeaderProps) {
   <Container>
    <Content>
 
-    <h3>Sistema de Cadastro e Consulta</h3>
+    <h3>Sistema de Cadastro de Veiculos</h3>
 
     <button>home</button>
     
