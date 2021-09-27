@@ -4,34 +4,34 @@ import { GlobalStyle } from "./styles/global";
 import { useState } from "react";
 import { VehicleTable } from "./components/CarsTable";
 import { NewVehicle } from "./components/NewVehicle";
-import { RegisterProvider } from "./RegisterContext";
+import { VehicleProvider } from "./VehicleContext";
 
 export function App() {
   
-  const [isNewVehicleRegisterModalOpen,
-    setIsNewVehicleRegisterModalOpen
+  const [isNewVehicleModalOpen,
+    setIsNewVehicleModalOpen
    ] = useState(false);
   
-   function handleOpenNewVehicleRegisterModal() {
-    setIsNewVehicleRegisterModalOpen(true);
+   function handleOpenNewVehicleModal() {
+    setIsNewVehicleModalOpen(true);
    }
   
-   function handleCloseNewVehicleRegisterModal() {
-    setIsNewVehicleRegisterModalOpen(false);
+   function handleCloseNewVehicleModal() {
+    setIsNewVehicleModalOpen(false);
    }
 
   return (
-    <RegisterProvider>
+    <VehicleProvider>
 
       <GlobalStyle />
-      <Header onOpenNewVehicleRegisterModal={handleOpenNewVehicleRegisterModal} />
+      <Header onOpenNewVehicleModal={handleOpenNewVehicleModal} />
       <Dashboard />
       <VehicleTable />
       <NewVehicle
-        isOpen={isNewVehicleRegisterModalOpen}
-        onRequestClose={handleCloseNewVehicleRegisterModal}
+        isOpen={isNewVehicleModalOpen}
+        onRequestClose={handleCloseNewVehicleModal}
       />
 
-    </RegisterProvider>
+    </VehicleProvider>
   );
 }

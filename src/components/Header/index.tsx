@@ -1,9 +1,9 @@
 import { Container, Content } from "./styles";
 interface HeaderProps {
- onOpenNewVehicleRegisterModal: () => void
+ onOpenNewVehicleModal: () => void
 }
 
-export function Header({ onOpenNewVehicleRegisterModal }: HeaderProps) {
+export function Header({ onOpenNewVehicleModal }: HeaderProps) {
 
  return (
   <Container>
@@ -12,8 +12,8 @@ export function Header({ onOpenNewVehicleRegisterModal }: HeaderProps) {
     <h3>Sistema de Cadastro e Consulta</h3>
 
     <button>home</button>
-    {/* <button>cadastro</button> */}
-    <button onClick={onOpenNewVehicleRegisterModal}  >Cadastrar veiculos</button>
+    
+    <button onClick={onOpenNewVehicleModal}  >Cadastrar veiculos</button>
 
    </Content>
   </Container>

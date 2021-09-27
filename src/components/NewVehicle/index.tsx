@@ -15,10 +15,8 @@ export function NewVehicle({ isOpen, onRequestClose }: NewVehicleProps) {
   const [renavan, setRenavan] = useState('')
   const [name, setName] = useState('')
   const [cpf, setCpf] = useState(0)
-  // const [loadImg, setLoadImage] = useState([])
-  // const [loked, setLocked] = useState(false)
 
-  function handleCreateRegister(event: FormEvent) {
+  function handleCreateVehicle(event: FormEvent) {
     event.preventDefault();
 
     const data = {
@@ -52,7 +50,7 @@ export function NewVehicle({ isOpen, onRequestClose }: NewVehicleProps) {
         <img src={closeImg} alt="Fechar modal" />
       </button>
 
-      <Container onSubmit={handleCreateRegister}>
+      <Container onSubmit={handleCreateVehicle}>
         <h2>Cadastrar de veículos</h2>
 
         <input
@@ -62,7 +60,6 @@ export function NewVehicle({ isOpen, onRequestClose }: NewVehicleProps) {
         />
 
         <input
-          // type="number"
           placeholder="Renavan"
           value={renavan}
           onChange={event => setRenavan(event.target.value)}
@@ -87,12 +84,6 @@ export function NewVehicle({ isOpen, onRequestClose }: NewVehicleProps) {
             Escolher um arquivo
           </button>
         </UploadImagesContainer>
-        {/* <div>Carregar imagem</div>
-        <button>
-          Escolher um arquivo
-        </button> */}
-
-        {/* <input type="checkbox" name="Bloqueado" id="block" /> */}
 
         <button type="submit">
           Cadastrar

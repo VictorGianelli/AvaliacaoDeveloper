@@ -1,13 +1,14 @@
 import { useContext } from 'react';
 import lockedImg from '../../assets/locked.svg'
 import unlockedImg from '../../assets/unlocked.svg'
-import { RegisterContext } from '../../RegisterContext';
+import { VehicleContext } from '../../VehicleContext';
 import { Container } from "./styles";
 
 
 export function VehicleTable() {
-  const { registers } = useContext(RegisterContext)
+  const { vehicles } = useContext(VehicleContext)
 
+  console.log(vehicles)
   return (
     <Container>
       <table>

@@ -2,13 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   
-  // background: var(--gray);
   margin: 0rem 2rem 0rem 2rem ;
 `;
 
 export const Content = styled.div`
   background: var(--gray);
-  /* max-width: 1120px; */
   margin-top: 0 auto;
 
   padding: 0rem 1rem 0rem;
