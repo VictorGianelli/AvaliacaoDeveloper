@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import lockedImg from '../../assets/locked.svg'
-import unlockedImg from '../../assets/unlocked.svg'
+import lockedImg from '../../assets/lock.png'
+import unlockedImg from '../../assets/unlock.png'
 import { VehicleContext } from '../../VehicleContext';
 import { Container } from "./styles";
 
