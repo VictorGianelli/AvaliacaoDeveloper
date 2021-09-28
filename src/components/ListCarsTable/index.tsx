@@ -1,9 +1,16 @@
+import { useEffect } from 'react';
 import lockedImg from '../../assets/locked.svg'
 import unlockedImg from '../../assets/unlocked.svg'
-import { Container } from "../Header/styles";
+import { api } from '../../services/api';
+import { Container } from "./styles";
 
 export function ListCarsTable() {
- return(
+ useEffect(() => {
+  api.get('vehicles')
+  .then(response => console.log(response.data)) 
+ },[]);
+
+ return (
   <Container>
    <table>
     <thead>
@@ -34,7 +41,7 @@ export function ListCarsTable() {
       <td className="locked">
        <img src={lockedImg} alt="Bloqueado" />
       </td>
-      
+
       <td>AAA-1234</td>
       <td>65243254-15</td>
       <td>
