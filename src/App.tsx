@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
 import { ListCarsTable } from "./components/ListCarsTable";
-import { NewVehicle } from "./NewVehicle";
+import { NewVehicle } from "./components/NewVehicle";
 import { GlobalStyle } from "./styles/global";
+import { VehicleContext } from "./VehicleContext";
 
 export function App() {
 
@@ -20,7 +21,7 @@ export function App() {
   }
 
   return (
-    <>
+    <VehicleContext.Provider value={[]}>
 
       <GlobalStyle />
       <Header onOpenNewVehicleRegisterModal={handleOpenNewVehicleRegisterModal} />
@@ -31,6 +32,6 @@ export function App() {
         onRequestClose={handleCloseNewVehicleRegisterModal}
       />
 
-    </>
+    </VehicleContext.Provider>
   );
 }
