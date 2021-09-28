@@ -1,15 +1,20 @@
-// import { Container, Content } from './styles';
-
 import { Container, Content } from "./styles";
+interface HeaderProps {
+ onOpenNewVehicleRegisterModal: () => void
+}
 
-export function Header() {
+export function Header({ onOpenNewVehicleRegisterModal }: HeaderProps) {
 
  return (
   <Container>
    <Content>
-    <h3>Sistema de Cadastro e Consulta</h3>
+
+    <h3>Sistema de Cadastro de Veiculos</h3>
+
     <button>home</button>
-    <button>cadastro</button>
+    {/* <button>cadastro</button> */}
+    <button onClick={onOpenNewVehicleRegisterModal}  >Cadastrar veiculos</button>
+
    </Content>
   </Container>
  )
