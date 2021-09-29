@@ -45,12 +45,13 @@ export function NewVehicle({ isOpen, onRequestClose }: NewVehicleProps) {
           placeholder="CPF"
         />
 
-        <UploadImagesContainer>
+        {/* <UploadImagesContainer>
           <h3>Carregar imagem</h3>
           <button>
             Escolher um arquivo
           </button>
-        </UploadImagesContainer>
+        </UploadImagesContainer> */}
+
         {/* <div>Carregar imagem</div>
         <button>
           Escolher um arquivo

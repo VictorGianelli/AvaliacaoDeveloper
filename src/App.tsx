@@ -1,10 +1,13 @@
 import { useState } from "react";
+import Modal from 'react-modal';
 import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
 import { ListCarsTable } from "./components/ListCarsTable";
 import { NewVehicle } from "./components/NewVehicle";
 import { GlobalStyle } from "./styles/global";
-import { VehicleContext } from "./VehicleContext";
+import { VehicleProvider } from "./VehicleContext";
+
+Modal.setAppElement('#root');
 
 export function App() {
 
@@ -21,7 +24,7 @@ export function App() {
   }
 
   return (
-    <VehicleContext.Provider value={[]}>
+    <VehicleProvider>
 
       <GlobalStyle />
       <Header onOpenNewVehicleRegisterModal={handleOpenNewVehicleRegisterModal} />
@@ -32,6 +35,6 @@ export function App() {
         onRequestClose={handleCloseNewVehicleRegisterModal}
       />
 
-    </VehicleContext.Provider>
+    </VehicleProvider>
   );
 }

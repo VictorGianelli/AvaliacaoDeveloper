@@ -1,14 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import lockedImg from '../../assets/locked.svg'
 import unlockedImg from '../../assets/unlocked.svg'
 import { api } from '../../services/api';
 import { Container } from "./styles";
 
+
 export function ListCarsTable() {
- useEffect(() => {
-  api.get('vehicles')
-  .then(response => console.log(response.data)) 
- },[]);
 
  return (
   <Container>
@@ -54,7 +51,7 @@ export function ListCarsTable() {
     </tbody>
 
    </table>
-   
+
   </Container>
  )
 }
