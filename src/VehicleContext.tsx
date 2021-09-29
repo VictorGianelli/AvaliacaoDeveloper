@@ -11,7 +11,7 @@ interface Vehicle {
  // blocked: boolean;
 }
 
-type VehicleInput = Omit<Vehicle, 'id' >;
+type VehicleInput = Omit<Vehicle, 'id'>;
 
 interface VehicleProviderProps {
  children: ReactNode;
@@ -26,21 +26,21 @@ export const VehicleContext = createContext<VehiclesContextData>(
  {} as VehiclesContextData
 );
 
-export function VehicleProvider({children} : VehicleProviderProps) {
+export function VehicleProvider({ children }: VehicleProviderProps) {
  const [vehicles, setVehicles] = useState<Vehicle[]>([])
 
  useEffect(() => {
   api.get('vehicles')
-   .then(response => setVehicles(response.data.Vehicles))
+   .then(response => setVehicles(response.data.vehicles))
  }, []);
 
  function createVehicle(vehicle: VehicleInput) {
 
   api.post('/vehicles', vehicle)
-}
+ }
 
  return (
-  <VehicleContext.Provider value={{vehicles, createVehicle}}>
+  <VehicleContext.Provider value={{ vehicles, createVehicle }}>
    {children}
   </VehicleContext.Provider>
  )

@@ -37,15 +37,17 @@ createServer({
       vehicles: [
         {
           id: 1,
-          locked: true,
-          vehiclePlate: 'CTK2100',
+          plate: 'CTK2100',
           renavan: '53726152-43',
+          name: 'John Doe',
+          cpf: 434324331
         },
         {
           id: 2,
-          locked: false,
           vehiclePlate: 'DKF7878',
           renavan: '26152537-83',
+          name: 'John Doe2',
+          cpf: 243314343
         },
       ]
     })
@@ -57,7 +59,7 @@ createServer({
     this.get('/vehicles', () => {
       return this.schema.all('vehicles')
     })
-    
+
     this.post('/vehicles', (schema, request) => {
       const data = JSON.parse(request.requestBody)
 
