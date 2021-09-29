@@ -29,7 +29,7 @@ import { App } from './App';
 
 createServer({
   models: {
-    vehicles: Model
+    vehicle: Model
   },
 
   seeds(server) {
@@ -44,7 +44,7 @@ createServer({
         },
         {
           id: 2,
-          vehiclePlate: 'DKF7878',
+          plate: 'DKF7878',
           renavan: '26152537-83',
           name: 'John Doe2',
           cpf: 243314343
@@ -57,13 +57,13 @@ createServer({
     this.namespace = 'api';
 
     this.get('/vehicles', () => {
-      return this.schema.all('vehicles')
+      return this.schema.all('vehicle')
     })
 
     this.post('/vehicles', (schema, request) => {
       const data = JSON.parse(request.requestBody)
 
-      return schema.create('vehicles', data)
+      return schema.create('vehicle', data)
     })
   }
 })

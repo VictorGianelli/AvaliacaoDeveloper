@@ -1,7 +1,8 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import Modal from 'react-modal';
 import closeImg from '../../assets/close.svg'
 import { api } from '../../services/api';
+import { VehicleContext } from '../../VehicleContext';
 import { Container } from './styles';
 
 interface NewVehicleProps {
@@ -10,6 +11,7 @@ interface NewVehicleProps {
 }
 
 export function NewVehicle({ isOpen, onRequestClose }: NewVehicleProps) {
+  const { createVehicle } = useContext(VehicleContext)
 
   const [plate, setPlate] = useState('')
   const [renavan, setRenavan] = useState('')
@@ -18,23 +20,17 @@ export function NewVehicle({ isOpen, onRequestClose }: NewVehicleProps) {
   // const [loadImg, setLoadImage] = useState([])
   // const [loked, setLocked] = useState(false)
 
-  function handleCreateVehicle(event: FormEvent) {
+  async function handleCreateVehicle(event: FormEvent) {
     event.preventDefault();
 
-    const data = {
-      plate,
-      renavan,
+    await createVehicle({
       name,
+      renavan,
+      plate,
       cpf
-    }
+    })
 
-    setPlate('');
-    setRenavan('');
-    setName('');
-    setCpf(0);
-    onRequestClose();
-
-    api.post('/vehicles', data)
+    onRequestClose()
   }
 
   return (

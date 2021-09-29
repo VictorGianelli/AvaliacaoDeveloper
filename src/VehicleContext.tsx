@@ -4,8 +4,8 @@ import { api } from './services/api';
 interface Vehicle {
  id: number;
  name: string;
- locked: boolean;
- vehiclePlate: string;
+ cpf: number;
+ plate: string;
  renavan: string;
  // images: [],
  // blocked: boolean;
@@ -19,7 +19,7 @@ interface VehicleProviderProps {
 
 interface VehiclesContextData {
  vehicles: Vehicle[];
- createVehicle: (vehicle: VehicleInput) => void
+ createVehicle: (vehicle: VehicleInput) => Promise<void>
 }
 
 export const VehicleContext = createContext<VehiclesContextData>(
@@ -34,9 +34,17 @@ export function VehicleProvider({ children }: VehicleProviderProps) {
    .then(response => setVehicles(response.data.vehicles))
  }, []);
 
- function createVehicle(vehicle: VehicleInput) {
+ async function createVehicle(vehicleInput: VehicleInput) {
 
-  api.post('/vehicles', vehicle)
+  const response = await api.post('/vehicles', vehicleInput)
+
+  const { vehicle } = response.data;
+
+  setVehicles([
+    ...vehicles,
+    vehicle
+  ])
+
  }
 
  return (
