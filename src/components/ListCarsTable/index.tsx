@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import lockedImg from '../../assets/locked.svg'
 import unlockedImg from '../../assets/unlocked.svg'
 import { api } from '../../services/api';
+import { VehicleContext } from '../../VehicleContext';
 import { Container } from "./styles";
 
 
 export function ListCarsTable() {
+ const { vehicles } = useContext(VehicleContext)
 
  return (
   <Container>
