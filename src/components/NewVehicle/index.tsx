@@ -3,7 +3,6 @@ import Modal from 'react-modal';
 import closeImg from '../../assets/close.svg'
 import { api } from '../../services/api';
 import { Container } from './styles';
-import { UploadImagesContainer } from './styles';
 
 interface NewVehicleProps {
   isOpen: boolean;
@@ -35,7 +34,7 @@ export function NewVehicle({ isOpen, onRequestClose }: NewVehicleProps) {
     setCpf(0);
     onRequestClose();
 
-    api.post('/vehicle', data)
+    api.post('/vehicles', data)
   }
 
   return (

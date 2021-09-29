@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import lockedImg from '../../assets/locked.svg'
 import unlockedImg from '../../assets/unlocked.svg'
-import { api } from '../../services/api';
 import { VehicleContext } from '../../VehicleContext';
 import { Container } from "./styles";
 
